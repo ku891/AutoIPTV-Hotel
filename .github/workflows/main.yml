@@ -29,10 +29,19 @@ jobs:
         
       - name: 提交
         run: |
-          git config --local user.email "ku444@163.com"
-          git config --local user.name "ku444"
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git add .
           git commit *.txt -m "Add generated file"
           git commit *.m3u -m "Add generated file"
           #git pull --rebase
           git push -f
+      - name: Push changes
+        run: git push origin master
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+
+
+
+
+          
